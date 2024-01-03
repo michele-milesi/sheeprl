@@ -38,13 +38,16 @@ jobs:
             requirements.txt
             setup.py
 
-      - name: Install packages 1
+      - name: Create venv
         run: |
           pip install -U pip
-          pip install swig
-      
-      - name: Install packages 2
+          python -m venv env
+          source env/bin/activate
+          echo "VIRTUAL ENV:" $VIRTUAL_ENV
+
+      - name: Install packages
         run: |
+          pip install swig
           pip install -e .[atari,box2d,test,dev]
 
       - name: Run tests
