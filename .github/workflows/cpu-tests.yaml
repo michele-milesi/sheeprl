@@ -46,7 +46,7 @@ jobs:
       - name: Install packages Windows
         if: runner.os == 'Windows'
         run: |
-          env\\Scripts\\activate.bat
+          env\\Scripts\\activate
           pip install swig
           pip install -e .[atari,box2d,test,dev]
 
@@ -60,7 +60,7 @@ jobs:
       - name: Run tests Windows
         if: runner.os == 'Windows'
         run: |
-          env\\Scripts\\activate.bat
+          env\\Scripts\\activate
           python tests/run_tests.py
 
       - name: Run tests Linux
