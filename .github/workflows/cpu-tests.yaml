@@ -40,7 +40,6 @@ jobs:
 
       - name: Create venv
         run: |
-          pip install -U pip
           python -m venv env
 
       - name: Install packages Windows
