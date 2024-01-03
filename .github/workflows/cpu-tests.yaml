@@ -47,7 +47,6 @@ jobs:
         if: runner.os == 'Windows'
         run: |
           env\\Scripts\\activate.bat
-          pip install -U pip
           pip install swig
           pip install -e .[atari,box2d,test,dev]
 
