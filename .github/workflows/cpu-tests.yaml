@@ -46,16 +46,17 @@ jobs:
       - name: Install packages Windows
         if: runner.os == 'Windows'
         run: |
-          env/Source/activate
+          env\Scripts\activate
           python -m pip install -U pip
-          python -m pip install swig
+          pip install swig
           python -m pip install -e .[atari,box2d,test,dev]
+
       - name: Install packages Linux
         if: runner.os != 'Windows'
         run: |
           source env/bin/activate
           python -m pip install -U pip
-          python -m pip install swig
+          pip install swig
           python -m pip install -e .[atari,box2d,test,dev]
 
       - name: Run tests
