@@ -42,7 +42,6 @@ jobs:
         run: |
           pip install -U pip
           python -m venv env
-          source env/bin/activate
 
       - name: Install packages Windows
         if: runner.os == 'Windows'
