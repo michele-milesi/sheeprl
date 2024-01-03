@@ -43,10 +43,10 @@ jobs:
           pip install -U pip
           python -m venv env
           source env/bin/activate
-          echo "VIRTUAL ENV:" $VIRTUAL_ENV
 
       - name: Install packages
         run: |
+          source env/bin/activate
           pip install swig
           pip install -e .[atari,box2d,test,dev]
 
