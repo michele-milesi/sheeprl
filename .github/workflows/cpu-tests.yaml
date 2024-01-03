@@ -38,6 +38,12 @@ jobs:
             requirements.txt
             setup.py
 
+      - name: install swig
+        uses: johnwason/swig-build-action@v1
+        with:
+          version: 4.0.2
+          cache-key: ''
+
       - name: Install packages
         run: |
           pip install -U pip
