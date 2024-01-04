@@ -46,8 +46,9 @@ jobs:
         if: runner.os == 'Windows'
         run: |
           env\\Scripts\\activate
-          echo ${{env.VIRTUAL_ENV}}
-          echo ${{env.virtual_env}}
+          echo $env:VIRTUAL_ENV
+          echo $env:GITHUB_ENV
+          echo $env:virtual_env
           echo $VIRTUAL_ENV
           echo %VIRTUAL_ENV%
           pip install swig
