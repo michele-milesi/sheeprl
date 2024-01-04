@@ -45,12 +45,8 @@ jobs:
       - name: Install packages Windows
         if: runner.os == 'Windows'
         run: |
-          env\\Scripts\\activate
-          echo $env:VIRTUAL_ENV
-          echo $env:GITHUB_ENV
-          echo $env:virtual_env
-          echo $VIRTUAL_ENV
-          echo %VIRTUAL_ENV%
+          env/Scripts/Activate.ps1
+          Write-Host "VIRTUAL_ENV: $env:VIRTUAL_ENV"
           pip install swig
           pip install -e .[atari,box2d,test,dev]
 
@@ -64,7 +60,7 @@ jobs:
       - name: Run tests Windows
         if: runner.os == 'Windows'
         run: |
-          env\\Scripts\\activate
+          env/Scripts/Activate.ps1
           python tests/run_tests.py
 
       - name: Run tests Linux
