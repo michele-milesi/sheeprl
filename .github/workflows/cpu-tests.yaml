@@ -43,28 +43,28 @@ jobs:
           python -m venv env
 
       - name: Install packages Windows
-        if: runner.os == 'Windows'
+        if: ${{ matrix.os == 'windows-latest' }}
         run: |
-          env/Scripts/Activate.ps1
+          env\\Scripts\\Activate.ps1
           Write-Host "VIRTUAL_ENV: $env:VIRTUAL_ENV"
           pip install swig
           pip install -e .[atari,box2d,test,dev]
 
       - name: Install packages Linux
-        if: runner.os != 'Windows'
+        if: ${{ matrix.os == 'ubuntu-latest' }}
         run: |
           source env/bin/activate
           pip install swig
           pip install -e .[atari,box2d,test,dev]
 
       - name: Run tests Windows
-        if: runner.os == 'Windows'
+        if: ${{ matrix.os == 'windows-latest' }}
         run: |
-          env/Scripts/Activate.ps1
+          env\\Scripts\\Activate.ps1
           python tests/run_tests.py
 
       - name: Run tests Linux
-        if: runner.os != 'Windows'
+        if: ${{ matrix.os == 'ubuntu-latest' }}
         run: |
           source env/bin/activate
           python tests/run_tests.py
