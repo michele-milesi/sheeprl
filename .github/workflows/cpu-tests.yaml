@@ -45,7 +45,7 @@ jobs:
       - name: Install packages Windows
         if: ${{ matrix.os == 'windows-latest' }}
         run: |
-          env\\Scripts\\Activate.ps1
+          env\\Scripts\\Activate
           Write-Host "VIRTUAL_ENV: $env:VIRTUAL_ENV"
           pip install swig
           pip install -e .[atari,box2d,test,dev]
@@ -60,7 +60,7 @@ jobs:
       - name: Run tests Windows
         if: ${{ matrix.os == 'windows-latest' }}
         run: |
-          env\\Scripts\\Activate.ps1
+          env\\Scripts\\Activate
           python tests/run_tests.py
 
       - name: Run tests Linux
