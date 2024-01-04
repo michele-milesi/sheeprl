@@ -46,6 +46,7 @@ jobs:
         if: runner.os == 'Windows'
         run: |
           env\\Scripts\\activate
+          echo "VIRTUAL ENV:" $VIRTUAL_ENV
           pip install swig
           pip install -e .[atari,box2d,test,dev]
 
